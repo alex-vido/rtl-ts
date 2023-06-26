@@ -1,9 +1,9 @@
-import { screen } from "@testing-library/react";
-import renderWithRouter from "../renderWithRouter";
-import App from "../App";
+import { screen } from '@testing-library/react';
+import renderWithRouter from '../renderWithRouter';
+import App from '../App';
 
 test('Teste se o topo da aplicação contém um conjunto fixo de links de navegação', () => {
-  renderWithRouter(<App />)
+  renderWithRouter(<App />);
   const home = screen.getByRole('link', { name: /home/i });
   const about = screen.getByRole('link', { name: /about/i });
   const favorite = screen.getByRole('link', { name: /favorite pokémon/i });
@@ -13,7 +13,7 @@ test('Teste se o topo da aplicação contém um conjunto fixo de links de navega
 });
 
 test('Teste se a aplicação é redirecionada para a página inicial, na URL /, ao clicar no link Home da barra de navegação', async () => {
-  const { user } = renderWithRouter(<App />)
+  const { user } = renderWithRouter(<App />);
   const btnHhome = screen.getByRole('link', { name: /home/i });
   const btnAbout = screen.getByRole('link', { name: /about/i });
   const btnFavorite = screen.getByRole('link', { name: /favorite pokémon/i });
@@ -34,4 +34,3 @@ test('Teste se a aplicação é redirecionada para a página inicial, na URL /, 
 
   expect(screen.getByText(/Page requested not found/i)).toBeInTheDocument();
 });
-
