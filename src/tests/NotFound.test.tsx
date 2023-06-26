@@ -9,10 +9,7 @@ test('Teste caso entre em um link inválido, entra na página not found', async 
   const btnFavorite = screen.getByRole('link', { name: /favorite pokémon/i });
   const title = screen.getByRole('heading', { name: /page requested not found/i });
   const img = screen
-    .getByRole('img', {
-      name: /pikachu crying because the page requested was not found/i
-    }
-  );
+    .getByRole('img', { name: /pikachu crying because the page requested was not found/i });
 
   expect(btnHhome).toBeInTheDocument();
   expect(btnAbout).toBeInTheDocument();
