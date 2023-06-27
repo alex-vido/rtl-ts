@@ -16,19 +16,19 @@ test('Teste para contemplar 100% dos casos de uso criados pelo Stryker', async (
   expect(btnAbout).toBeInTheDocument();
   expect(btnFavorite).toBeInTheDocument();
   expect(nextPokemon).toBeInTheDocument();
-  pokemons.map( async (pokemon) => {
+  pokemons.forEach(async (pokemon) => {
     const name = await screen.findByText(pokemon.name);
     expect(name).toBeInTheDocument();
     await user.click(nextPokemon);
   });
   expect(nextPokemon).toBeEnabled();
   await user.click(nextPokemon);
-  const btnAll = screen.getByRole('button', { name: /all/i }); 
+  const btnAll = screen.getByRole('button', { name: /all/i });
   const buttons = screen.getAllByTestId('pokemon-type-button');
   const allButtons = [btnAll, ...buttons];
-  allButtons.map((button) => {
+  allButtons.forEach((button) => {
     expect(button).toBeInTheDocument();
-  })
+  });
   const btnElectric = buttons[0];
   const btnFire = buttons[1];
   const btnBug = buttons[2];
@@ -39,26 +39,26 @@ test('Teste para contemplar 100% dos casos de uso criados pelo Stryker', async (
   await user.click(btnElectric);
   expect(pikachu).toBeInTheDocument();
   expect(nextPokemon).toBeDisabled();
-  await user.click(btnFire); 
+  await user.click(btnFire);
   const charmander = screen.getByText(/charmander/i);
   expect(charmander).toBeInTheDocument();
   expect(nextPokemon).toBeEnabled();
-  await user.click(nextPokemon); 
+  await user.click(nextPokemon);
   const rapidash = screen.getByText(/rapidash/i);
   expect(rapidash).toBeInTheDocument();
   await user.click(btnBug); 
   const caterpie = screen.getByText(/caterpie/i);
   expect(caterpie).toBeInTheDocument();
   expect(nextPokemon).toBeDisabled();
-  await user.click(btnPoison); 
+  await user.click(btnPoison);
   const ekans = screen.getByText(/ekans/i);
   expect(ekans).toBeInTheDocument();
   expect(nextPokemon).toBeDisabled();
-  await user.click(btnPsychic); 
+  await user.click(btnPsychic);
   const alakazam = screen.getByText(/alakazam/i);
   expect(alakazam).toBeInTheDocument();
   expect(nextPokemon).toBeEnabled();
-  await user.click(nextPokemon); 
+  await user.click(nextPokemon);
   const mew = screen.getByText(/mew/i);
   expect(mew).toBeInTheDocument();
   await user.click(btnNormal);
