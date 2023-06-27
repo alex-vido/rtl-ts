@@ -1,8 +1,8 @@
 import { screen } from '@testing-library/react';
-import renderWithRouter from "../renderWithRouter";
-import App from "../App";
+import renderWithRouter from '../renderWithRouter';
+import App from '../App';
 
-test('Faça um teste que comtemple 100% dos requisitos do stryker', async() => {
+test('Faça um teste que comtemple 100% dos requisitos do stryker', async () => {
   const { user } = renderWithRouter(<App />);
   const name = screen.getByTestId('pokemon-name');
   const type = screen.getByTestId('pokemon-type');
@@ -22,11 +22,11 @@ test('Faça um teste que comtemple 100% dos requisitos do stryker', async() => {
   expect(img).toHaveAttribute('alt', 'Pikachu sprite');
   expect(img)
     .toHaveAttribute('src', 'https://archives.bulbagarden.net/media/upload/b/b2/Spr_5b_025_m.png');
-    expect(link).toHaveAttribute('href', '/pokemon/25');
+  expect(link).toHaveAttribute('href', '/pokemon/25');
   await user.click(link);
   const checkFavorite = screen.getByText(/pokémon favoritado\?/i);
   await user.click(checkFavorite);
   const stared = screen
     .getByRole('img', { name: /pikachu is marked as favorite/i });
   expect(stared).toBeInTheDocument();
-  });
+});
