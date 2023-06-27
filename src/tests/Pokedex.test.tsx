@@ -46,7 +46,7 @@ test('Teste para contemplar 100% dos casos de uso criados pelo Stryker', async (
   await user.click(nextPokemon);
   const rapidash = screen.getByText(/rapidash/i);
   expect(rapidash).toBeInTheDocument();
-  await user.click(btnBug); 
+  await user.click(btnBug);
   const caterpie = screen.getByText(/caterpie/i);
   expect(caterpie).toBeInTheDocument();
   expect(nextPokemon).toBeDisabled();
