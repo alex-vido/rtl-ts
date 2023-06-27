@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 import renderWithRouter from '../renderWithRouter';
 import App from '../App';
 
-test('Teste caso entre em um link inválido, entra na página not found', async () => {
+test('Teste caso entre em um link inválido, entra na página not found', () => {
   renderWithRouter(<App />, { route: '/test' });
   const btnHhome = screen.getByRole('link', { name: /home/i });
   const btnAbout = screen.getByRole('link', { name: /about/i });
