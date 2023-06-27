@@ -20,7 +20,7 @@ test('Faça um teste que comtemple 100% dos requisitos do stryker', async () => 
   const nameLocation1 = screen.getByText(/kanto viridian forest/i);
   const nameLocation2 = screen.getByText(/kanto power plant/i);
   const checkbox = screen.getByText(/pokémon favoritado\?/i);
-  
+
   expect(title).toBeInTheDocument();
   expect(title).toHaveTextContent(/pikachu details/i);
   expect(link).not.toBeInTheDocument();
